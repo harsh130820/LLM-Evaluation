@@ -1,0 +1,6 @@
+services:
+  fixed-tests:
+    build:
+      context: .
+      target: fixed
+    command: ["pytest", "-q", "tests", "evaluation"]

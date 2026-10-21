@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retrykit-evaluation-fixture"
+version = "0.1.0"
+description = "A small reproducible repository-evaluation portfolio exercise"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Portfolio Sample" }]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8.0,<10.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+pythonpath = ["src"]
