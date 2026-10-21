@@ -1,0 +1,14 @@
+diff --git a/src/retrykit/backoff.py b/src/retrykit/backoff.py
+--- a/src/retrykit/backoff.py
++++ b/src/retrykit/backoff.py
+@@ -62,8 +62,7 @@
+     if retry_after is not None:
+         server_delay = _parse_retry_after(retry_after, now=now)
+         if server_delay is not None:
+-            # Known defect for the exercise: the server-provided delay bypasses
+-            # max_delay, even though the API promises all returned delays are capped.
+-            return server_delay
++            # Apply the configured cap consistently to server-provided delays.
++            return min(server_delay, max_delay)
+ 
+     return exponential_delay
